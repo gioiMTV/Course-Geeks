@@ -100,6 +100,6 @@ class HomeController
         ]);
 
         // dd($userDetail); 
-        return view('home', compact('title'));
+        return view('index', compact('title'));
     }
 }
