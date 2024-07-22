@@ -213,7 +213,13 @@ class CourseController extends Controller
         } else {
             // Guest users (not logged in)
             $section = CourseSectionModel::where('course_id', '=', $id)->first();
+            if (!$section) {
+                $section = CourseSectionModel::first();
+            }
+
+            // dd($section);
             $course = CourseModel::findOrFail($section->course_id);
+          
             $isSell = null;
             $isSelf = null;
             $sections = $course->section;
